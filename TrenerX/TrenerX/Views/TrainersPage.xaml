@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrenerX.Views.TrainersPage">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Добавить"
+                     Clicked="AddButton_Clicked" />
+    </ContentPage.ToolbarItems>
+    <Frame Padding="8" 
+           BackgroundColor="#d6dcd3">
+        <CollectionView x:Name="collectionView"
+                    Margin="0"
+                    SelectionMode="Single"
+                    SelectionChanged="OnSelectionChanged"
+                    BackgroundColor="#d6dcd3">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical"
+                               ItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid BackgroundColor="Honeydew"
+                      Margin="10"
+                      Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="0"
+                           Grid.Row="0" 
+                           Source="{Binding Image}"
+                           Aspect="AspectFill"
+                           HeightRequest="60"
+                           WidthRequest="60"></Image>
+                        <Label Grid.Column="0"
+                           Grid.Row="1"
+                           Text="{Binding FullName}"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                        <Label Grid.Column="1"
+                           Grid.Row="0"
+                           Grid.ColumnSpan="2"
+                           Text="{Binding Education}"
+                           HorizontalOptions="Center"/>
+                        <Label Grid.Column="1"
+                           Grid.Row="1"
+                           Text="{Binding DirOfTraining}"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"/>
+                        <Button Grid.Column="2" 
+                            Grid.Row="1"
+                            Text="Подробнее"
+                            ClassId ="{Binding ID}"
+                            TextColor="OldLace"
+                            BackgroundColor="#60569d"
+                            CornerRadius="20"
+                            HeightRequest="40"
+                            FontSize="15"
+                            TextTransform="None"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Clicked="GetDetailed"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Frame>
+</ContentPage>

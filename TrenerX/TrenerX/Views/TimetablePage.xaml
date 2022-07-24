@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrenerX.Views.TimetablePage">
+    <ContentPage.Content>
+        <Grid Padding="20"
+              BackgroundColor="#d6dcd3"
+              ColumnSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="110"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Text="ПН"
+                   BackgroundColor="Honeydew"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   FontSize="30"
+                   Grid.Row="0"
+                   Grid.Column="0"/>
+            <Label x:Name="labalFullName_1"
+                   BackgroundColor="Honeydew"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   FontSize="20"
+                   Grid.Row="0"
+                   Grid.Column="1"/>
+            <Label x:Name="labalDir_1"
+                   BackgroundColor="Honeydew"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Padding="5"
+                   FontSize="20"
+                   Grid.Row="0"
+                   Grid.Column="2"/>
+
+            <Label Text="ВТ"
+                   BackgroundColor="Honeydew"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   FontSize="30"
+                   Grid.Row="1"
+                   Grid.Column="0"/>
+            <Label x:Name="labalFullName_2"
+                   BackgroundColor="Honeydew"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   FontSize="20"
+                   Grid.Row="1"
+                   Grid.Column="1"/>
+            <Label x:Name="labalDir_2"
+                   BackgroundColor="Honeydew"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Padding="5"
+                   FontSize="20"
+                   Grid.Row="1"
+                   Grid.Column="2"/>
+
+            <Label Text="СР"
+                   BackgroundColor="Honeydew"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   FontSize="30"
+                   Grid.Row="2"
+                   Grid.Column="0"/>
+            <Label x:Name="labalFullName_3"
+                   BackgroundColor="Honeydew"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   FontSize="20"
+                   Grid.Row="2"
+                   Grid.Column="1"/>
+            <Label x:Name="labalDir_3"
+                   BackgroundColor="Honeydew"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Padding="5"
+                   FontSize="20"
+                   Grid.Row="2"
+                   Grid.Column="2"/>
+
+            <Label Text="ЧТ"
+                   BackgroundColor="Honeydew"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   FontSize="30"
+                   Grid.Row="3"
+                   Grid.Column="0"/>
+            <Label x:Name="labalFullName_4"
+                   BackgroundColor="Honeydew"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   FontSize="20"
+                   Grid.Row="3"
+                   Grid.Column="1"/>
+            <Label x:Name="labalDir_4"
+                   BackgroundColor="Honeydew"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Padding="5"
+                   FontSize="20"
+                   Grid.Row="3"
+                   Grid.Column="2"/>
+            
+
+            <Label Text="ПТ"
+                   BackgroundColor="Honeydew"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   FontSize="30"
+                   Grid.Row="4"
+                   Grid.Column="0"/>
+            <Label x:Name="labalFullName_5"
+                   BackgroundColor="Honeydew"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   FontSize="20"
+                   Grid.Row="4"
+                   Grid.Column="1"/>
+            <Label x:Name="labalDir_5"
+                   BackgroundColor="Honeydew"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Padding="5"
+                   FontSize="20"
+                   Grid.Row="4"
+                   Grid.Column="2"/>
+
+            <Label Text="СБ"
+                   BackgroundColor="Honeydew"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   FontSize="30"
+                   Grid.Row="5"
+                   Grid.Column="0"/>
+            <Label x:Name="labalFullName_6"
+                   BackgroundColor="Honeydew"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   FontSize="20"
+                   Grid.Row="5"
+                   Grid.Column="1"/>
+            <Label x:Name="labalDir_6"
+                   BackgroundColor="Honeydew"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Padding="5"
+                   FontSize="20"
+                   Grid.Row="5"
+                   Grid.Column="2"/>
+
+            <Label Text="ВС"
+                   BackgroundColor="Honeydew"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   FontSize="30"
+                   Grid.Row="6"
+                   Grid.Column="0"/>
+            <Label x:Name="labalFullName_7"
+                   BackgroundColor="Honeydew"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   FontSize="20"
+                   Grid.Row="6"
+                   Grid.Column="1"/>
+            <Label x:Name="labalDir_7"
+                   BackgroundColor="Honeydew"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   Padding="5"
+                   FontSize="20"
+                   Grid.Row="6"
+                   Grid.Column="2"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

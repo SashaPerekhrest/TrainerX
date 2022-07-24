@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrenerX.Views.TrainerAddingPage">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="Honeydew">
+            <ScrollView>
+                <StackLayout Margin="20">
+                    <Editor Placeholder="ФИО тренера"
+                        Text="{Binding FullName}"
+                        HeightRequest="100"/>
+                    <Editor Placeholder="Сылка на фотографию"
+                        Text="{Binding Image}"
+                        HeightRequest="100"/>
+                    <Editor Placeholder="Описание"
+                        Text="{Binding Education}"
+                        AutoSize="TextChanges"/>
+                    <Editor Placeholder="Направление подготовки"
+                        Text="{Binding DirOfTraining}"
+                        HeightRequest="100"/>
+                    <Editor Placeholder="Требования"
+                        Text="{Binding Requirements}"
+                        HeightRequest="100"/>
+                    <Editor Placeholder="Дни занятий"
+                        Text="{Binding TrainingCount}"
+                        HeightRequest="100"/>
+                    <Grid ColumnDefinitions="*,*">
+                        <Button Text="Save"
+                            Clicked="OnSaveButton_Clicked"/>
+                        <Button Grid.Column="1"
+                            Text="Delete"
+                            Clicked="OnDeleteButton_Clicked"/>
+                    </Grid>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

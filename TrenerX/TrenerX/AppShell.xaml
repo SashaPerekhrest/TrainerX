@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrenerX.AppShell"
+       xmlns:views="clr-namespace:TrenerX.Views">
+    <Shell.Resources>
+        <Style x:Key="BaseStyle" TargetType="Element">
+            <Setter Property="Shell.BackgroundColor" Value="#60569d"/>
+            <Setter Property="Shell.ForegroundColor" Value="OldLace"/>
+            <Setter Property="Shell.TitleColor" Value="OldLace"/>
+        </Style>
+    </Shell.Resources>
+    <TabBar
+        Style="{StaticResource BaseStyle}">
+        <ShellContent 
+            Title="Тренера"
+            Icon="trainers.png"
+            ContentTemplate="{DataTemplate views:TrainersPage}">
+        </ShellContent>
+
+        <ShellContent 
+            Title="Мои тренера"
+            Icon="mytrainers.png"
+            ContentTemplate="{DataTemplate views:MyTrainersPage}">
+        </ShellContent>
+
+        <ShellContent 
+            Title="Расписание"
+            Icon="timetable.png"
+            ContentTemplate="{DataTemplate views:TimetablePage}">
+        </ShellContent>
+        
+    </TabBar>
+</Shell>
