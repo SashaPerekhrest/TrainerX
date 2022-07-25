@@ -23,6 +23,7 @@
 
             <Label Text="ПН"
                    BackgroundColor="Honeydew"
+                   TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    FontSize="30"
@@ -30,6 +31,7 @@
                    Grid.Column="0"/>
             <Label x:Name="labalFullName_1"
                    BackgroundColor="Honeydew"
+                   TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    FontSize="20"
@@ -37,6 +39,7 @@
                    Grid.Column="1"/>
             <Label x:Name="labalDir_1"
                    BackgroundColor="Honeydew"
+                   TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    Padding="5"
@@ -46,6 +49,7 @@
 
             <Label Text="ВТ"
                    BackgroundColor="Honeydew"
+                   TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    FontSize="30"
@@ -53,6 +57,7 @@
                    Grid.Column="0"/>
             <Label x:Name="labalFullName_2"
                    BackgroundColor="Honeydew"
+                   TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    FontSize="20"
@@ -60,6 +65,7 @@
                    Grid.Column="1"/>
             <Label x:Name="labalDir_2"
                    BackgroundColor="Honeydew"
+                   TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    Padding="5"
@@ -69,6 +75,7 @@
 
             <Label Text="СР"
                    BackgroundColor="Honeydew"
+                   TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    FontSize="30"
@@ -76,6 +83,7 @@
                    Grid.Column="0"/>
             <Label x:Name="labalFullName_3"
                    BackgroundColor="Honeydew"
+                   TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    FontSize="20"
@@ -83,6 +91,7 @@
                    Grid.Column="1"/>
             <Label x:Name="labalDir_3"
                    BackgroundColor="Honeydew"
+                   TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    Padding="5"
@@ -92,6 +101,7 @@
 
             <Label Text="ЧТ"
                    BackgroundColor="Honeydew"
+                   TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    FontSize="30"
@@ -99,6 +109,7 @@
                    Grid.Column="0"/>
             <Label x:Name="labalFullName_4"
                    BackgroundColor="Honeydew"
+                   TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    FontSize="20"
@@ -106,6 +117,7 @@
                    Grid.Column="1"/>
             <Label x:Name="labalDir_4"
                    BackgroundColor="Honeydew"
+                   TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    Padding="5"
@@ -116,6 +128,7 @@
 
             <Label Text="ПТ"
                    BackgroundColor="Honeydew"
+                   TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    FontSize="30"
@@ -123,6 +136,7 @@
                    Grid.Column="0"/>
             <Label x:Name="labalFullName_5"
                    BackgroundColor="Honeydew"
+                   TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    FontSize="20"
@@ -130,6 +144,7 @@
                    Grid.Column="1"/>
             <Label x:Name="labalDir_5"
                    BackgroundColor="Honeydew"
+                   TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    Padding="5"
@@ -139,6 +154,7 @@
 
             <Label Text="СБ"
                    BackgroundColor="Honeydew"
+                   TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    FontSize="30"
@@ -146,6 +162,7 @@
                    Grid.Column="0"/>
             <Label x:Name="labalFullName_6"
                    BackgroundColor="Honeydew"
+                   TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    FontSize="20"
@@ -153,6 +170,7 @@
                    Grid.Column="1"/>
             <Label x:Name="labalDir_6"
                    BackgroundColor="Honeydew"
+                   TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    Padding="5"
@@ -162,6 +180,7 @@
 
             <Label Text="ВС"
                    BackgroundColor="Honeydew"
+                   TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    FontSize="30"
@@ -169,6 +188,7 @@
                    Grid.Column="0"/>
             <Label x:Name="labalFullName_7"
                    BackgroundColor="Honeydew"
+                   TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    FontSize="20"
@@ -176,6 +196,7 @@
                    Grid.Column="1"/>
             <Label x:Name="labalDir_7"
                    BackgroundColor="Honeydew"
+                   TextColor="Black"
                    HorizontalTextAlignment="Center"
                    VerticalTextAlignment="Center"
                    Padding="5"
