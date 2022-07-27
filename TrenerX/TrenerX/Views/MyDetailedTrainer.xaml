@@ -16,6 +16,8 @@
                         <RowDefinition Height="30"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
                         <RowDefinition Height="80"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
@@ -97,6 +99,22 @@
                            TextColor="Black"
                            Text="{Binding TrainingCount}"
                            TextTransform="Uppercase"/>
+                    <Label Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           Grid.Row="8"
+                           FontSize="20"
+                           Text="Цена занятий (руб.)"
+                           TextColor="Black"
+                           HorizontalTextAlignment="Center"
+                           BackgroundColor="Honeydew"/>
+                    <Label Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           Grid.Row="9"
+                           FontSize="20"
+                           HorizontalTextAlignment="Center"
+                           TextColor="Black"
+                           Text="{Binding Price}"
+                           TextTransform="Uppercase"/>
                     <Label Text="Вы записаны!"
                            HorizontalTextAlignment="Center"
                            TextColor="Black"
@@ -104,7 +122,7 @@
                            FontSize="20"
                            Grid.Column="0"
                            Grid.ColumnSpan="2"
-                           Grid.Row="8"/>
+                           Grid.Row="10"/>
                     <Button Text="Не мой тренер"
                             Clicked="DeleteFromMyTrainers"
                             CornerRadius="20"
@@ -113,7 +131,7 @@
                             Margin="20"
                             Grid.Column="0"
                             Grid.ColumnSpan="2"
-                            Grid.Row="9"/>
+                            Grid.Row="11"/>
                 </Grid>
             </StackLayout>
         </ScrollView>

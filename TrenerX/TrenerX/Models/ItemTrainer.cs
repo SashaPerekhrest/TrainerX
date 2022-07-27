@@ -15,5 +15,6 @@ namespace TrenerX.Models
         public string TrainingCount { get; set; }  //  количество тренировок в неделю (дни недели, 13 - пн ср)
         public string Image { get; set; } // фото
         public bool IsMine { get; set; } // мой ли тренер
+        public int Price { get; set; } // цена тренировки
     }
 }
