@@ -51,7 +51,8 @@ namespace TrenerX.Views
                     Image = trainer.Image,
                     TrainingCount = trainer.TrainingCount,
                     Requirements = trainer.Requirements,
-                    PrevID = trainer.ID
+                    PrevID = trainer.ID,
+                    Price = trainer.Price
                 };
                 await App.MyTrainerDB.SaveTrainerAsync(newTrainer);
                 App.LoadTrainersDays();
