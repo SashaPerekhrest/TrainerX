@@ -19,7 +19,7 @@ namespace TrenerX.Views
         {
             InitializeComponent();
 
-            BindingContext = new ItemTrainer();
+            BindingContext = new PostItemTrener();
         }
 
         private async void LoadTrener(string value)
@@ -28,7 +28,7 @@ namespace TrenerX.Views
             {
                 var id = Convert.ToInt32(value);
 
-                var trainer = await App.MyTrainerDB.GetTrainerAsync(id);
+                var trainer = App.trainersDB.GetTrainer(id);
 
                 BindingContext = trainer;
             }
@@ -37,18 +37,16 @@ namespace TrenerX.Views
 
         private async void DeleteFromMyTrainers(object sender, EventArgs e)
         {
-            var myTrainer = (ItemTrainer)BindingContext;
-            var trainer = await App.TrainerDB.GetTrainerAsync(myTrainer.PrevID);
-
-            try 
+            var myTrainer = (PostItemTrener)BindingContext;
+            App.myUser.TrenersID.Remove(myTrainer.ID);
+            App.myUser.TrainingCount = "";
+            foreach (var item in App.myUser.TrenersID)
             {
-                trainer.IsMine = false;
-                await App.TrainerDB.SaveTrainerAsync(trainer);
+                App.myUser.TrainingCount += item + " ";
             }
-            catch { }
+            App.usersDB.Update(App.myUser);
+            App.UpdateTrainersDays();
 
-            await App.MyTrainerDB.DeleteTrainerAsync(myTrainer);
-            App.UpdateTrainersDays(myTrainer.TrainingCount.Split(' '));
             await Shell.Current.GoToAsync("..");
         }
     }

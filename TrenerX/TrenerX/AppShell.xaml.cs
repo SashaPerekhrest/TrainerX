@@ -19,6 +19,8 @@ namespace TrenerX
             Routing.RegisterRoute(nameof(TrainerAddingPage), typeof(TrainerAddingPage));
             Routing.RegisterRoute(nameof(DetailedTrainerPage), typeof(DetailedTrainerPage));
             Routing.RegisterRoute(nameof(MyDetailedTrainer), typeof(MyDetailedTrainer));
+            Routing.RegisterRoute(nameof(EnterPage), typeof(EnterPage));
+            Routing.RegisterRoute(nameof(RegistrationPage), typeof(RegistrationPage));
         }
     }
 }

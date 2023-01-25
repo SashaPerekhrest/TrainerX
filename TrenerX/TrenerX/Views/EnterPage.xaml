@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Shell.NavBarIsVisible="False"
+             x:Class="TrenerX.Views.EnterPage">
+    <ContentPage.Content>
+        <StackLayout Margin="40,15" VerticalOptions="Center" Spacing="12">
+            <Label Text="Couch"
+                   HorizontalOptions="Center"
+                   TextColor="Black"
+                   FontSize="70"
+                   FontFamily="RockwellRegular"/>
+            <Frame CornerRadius="15"
+                   BorderColor="#74C044"
+                   BackgroundColor="#74C044"
+                   Margin="0"
+                   Padding="0">
+                <Frame Margin="4"
+                       BackgroundColor="White"
+                       CornerRadius="10"
+                       Padding="0">
+                    <StackLayout Margin="10" VerticalOptions="Center" Spacing="12">
+                        <Label Text="Вход"
+                               HorizontalOptions="Center"
+                               TextColor="Black"
+                               FontSize="30"
+                               FontFamily="RockwellRegular"/>
+                        <Editor x:Name ="loginPlace"
+                                Placeholder="Введите логин"
+                                PlaceholderColor="Gray"
+                                TextColor="Black"
+                                HeightRequest="50"/>
+                        <Editor x:Name="passwordPlace" 
+                                Placeholder="Введите пароль"
+                                PlaceholderColor="Gray"
+                                TextColor="Black"
+                                HeightRequest="50"/>
+                        <Button Text="Войти"
+                                Clicked="Button_Clicked"
+                                CornerRadius="15"
+                                HeightRequest="40"
+                                BorderWidth="1"
+                                BackgroundColor="#74C044"
+                                TextColor="White"/>
+                        <Button Text="Регистрация"
+                                Clicked="Button_Clicked_1"
+                                CornerRadius="15"
+                                HeightRequest="40"
+                                BorderWidth="1"
+                                BackgroundColor="#74C044"
+                                TextColor="White"/>
+                    </StackLayout>
+                </Frame>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

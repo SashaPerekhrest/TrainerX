@@ -14,7 +14,7 @@ namespace TrenerX.Views
 
         protected override async void OnAppearing()
         {
-            collectionView.ItemsSource = await App.MyTrainerDB.GetTrainersAsync();
+            collectionView.ItemsSource = App.trainersDB.GetMyTrainers(App.myUser);
     
             base.OnAppearing();
         }

@@ -19,7 +19,7 @@ namespace TrenerX.Views
         {
             InitializeComponent();
 
-            BindingContext = new ItemTrainer();
+            BindingContext = new PostItemTrener();
         }
 
         private async void LoadTrener(string value)
@@ -28,7 +28,7 @@ namespace TrenerX.Views
             {
                 var id = Convert.ToInt32(value);
 
-                var trainer = await App.TrainerDB.GetTrainerAsync(id);
+                var trainer = App.trainersDB.GetTrainer(id);
 
                 BindingContext = trainer;
             }
@@ -37,24 +37,12 @@ namespace TrenerX.Views
 
         private async void AddToMyTainers(object sender, EventArgs e)
         {
-            var trainer = (ItemTrainer)BindingContext;
-            if (!trainer.IsMine)
+            var trainer = (PostItemTrener)BindingContext;
+            if (!App.myUser.TrenersID.Contains(trainer.ID))
             {
-                trainer.IsMine = true;
-                await App.TrainerDB.SaveTrainerAsync(trainer);
-
-                var newTrainer = new ItemTrainer
-                {
-                    DirOfTraining = trainer.DirOfTraining,
-                    Education = trainer.Education,
-                    FullName = trainer.FullName,
-                    Image = trainer.Image,
-                    TrainingCount = trainer.TrainingCount,
-                    Requirements = trainer.Requirements,
-                    PrevID = trainer.ID,
-                    Price = trainer.Price
-                };
-                await App.MyTrainerDB.SaveTrainerAsync(newTrainer);
+                App.myUser.TrainingCount += " " + trainer.ID;
+                App.usersDB.Update(App.myUser);
+                App.myUser.TrenersID.Add(trainer.ID);
                 App.LoadTrainersDays();
             }
             await Shell.Current.GoToAsync("..");

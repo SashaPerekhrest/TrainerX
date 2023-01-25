@@ -14,8 +14,10 @@ namespace TrenerX.Views
 
         protected override async void OnAppearing()
         {
-            collectionView.ItemsSource = await App.TrainerDB.GetTrainersAsync();
+            //App.trainersDB.Select();
+            collectionView.ItemsSource = App.trainersDB.treners;
 
+            Console.WriteLine("/////////////////////////////////////");
             base.OnAppearing();
         }
 
@@ -28,9 +30,9 @@ namespace TrenerX.Views
         {
             if (e.CurrentSelection != null)
             {
-                ItemTrainer trainer = (ItemTrainer)e.CurrentSelection.FirstOrDefault();
+                var trainer = (PostItemTrener)e.CurrentSelection.FirstOrDefault();
                 await Shell.Current.GoToAsync(
-                    $"{nameof(TrainerAddingPage)}?{nameof(TrainerAddingPage.ItemId)}={trainer.ID.ToString()}");
+                    $"{nameof(TrainerAddingPage)}?{nameof(TrainerAddingPage.ItemId)}={trainer.ID}");
             }
         }
 
@@ -40,5 +42,13 @@ namespace TrenerX.Views
             await Shell.Current.GoToAsync(
                      $"{nameof(DetailedTrainerPage)}?{nameof(DetailedTrainerPage.ItemId)}={trainerID}");
         }
+
+        private void GetSportCategory(object sender, EventArgs e)
+            => collectionView.ItemsSource = App.trainersDB.GetTrainersAtCategory(1);
+
+        private void GetCyberSportCategory(object sender, EventArgs e)
+            => collectionView.ItemsSource = App.trainersDB.GetTrainersAtCategory(2);
+        private void GetEducationCategory(object sender, EventArgs e)
+            => collectionView.ItemsSource = App.trainersDB.GetTrainersAtCategory(3);
     }
 }

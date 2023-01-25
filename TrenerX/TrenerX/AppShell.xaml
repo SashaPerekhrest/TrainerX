@@ -5,12 +5,17 @@
        xmlns:views="clr-namespace:TrenerX.Views">
     <Shell.Resources>
         <Style x:Key="BaseStyle" TargetType="Element">
-            <Setter Property="Shell.BackgroundColor" Value="#60569d"/>
-            <Setter Property="Shell.ForegroundColor" Value="OldLace"/>
-            <Setter Property="Shell.TitleColor" Value="OldLace"/>
+            <Setter Property="Shell.BackgroundColor" Value="#74C044"/>
+            <Setter Property="Shell.ForegroundColor" Value="White"/>
+            <Setter Property="Shell.TitleColor" Value="Black"/>
         </Style>
     </Shell.Resources>
-    <TabBar
+    
+    <ShellItem Route="login">
+        <ShellContent ContentTemplate="{DataTemplate views:EnterPage}"/>
+    </ShellItem>
+    
+    <TabBar Route="main"
         Style="{StaticResource BaseStyle}">
         <ShellContent 
             Title="Тренера"
