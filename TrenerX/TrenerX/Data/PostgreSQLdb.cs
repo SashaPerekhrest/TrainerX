@@ -10,7 +10,7 @@ namespace TrenerX.Data
 {
     public class PostgreSQLdb
     {
-        private string ConnectionString = "Server=45.143.92.71; Port=5432; User Id=test; Password=123456; Database=testdb";
+        private string ConnectionString = "Server=193.124.125.15; Port=5432; User Id=sasha; Password=trener123trener; Database=trenex";
         private NpgsqlConnection connection;
         private string sql;
         private NpgsqlCommand command;
