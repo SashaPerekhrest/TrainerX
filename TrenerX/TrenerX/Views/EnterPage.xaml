@@ -11,8 +11,8 @@
                    FontSize="70"
                    FontFamily="RockwellRegular"/>
             <Frame CornerRadius="15"
-                   BorderColor="#74C044"
-                   BackgroundColor="#74C044"
+                   BorderColor="{Binding ModelColor}"
+                   BackgroundColor="{Binding ModelColor}"
                    Margin="0"
                    Padding="0">
                 <Frame Margin="4"
@@ -40,18 +40,26 @@
                                 CornerRadius="15"
                                 HeightRequest="40"
                                 BorderWidth="1"
-                                BackgroundColor="#74C044"
+                                BackgroundColor="{Binding ModelColor}"
                                 TextColor="White"/>
                         <Button Text="Регистрация"
                                 Clicked="Button_Clicked_1"
                                 CornerRadius="15"
                                 HeightRequest="40"
                                 BorderWidth="1"
-                                BackgroundColor="#74C044"
+                                BackgroundColor="{Binding ModelColor}"
                                 TextColor="White"/>
                     </StackLayout>
                 </Frame>
             </Frame>
+            <Button Text="Я - тренер"
+                    Clicked="ChangeOfDirection"
+                    CornerRadius="15"
+                    HeightRequest="40"
+                    HorizontalOptions="Center"
+                    BorderWidth="1"
+                    BackgroundColor="{Binding ModelColor}"
+                    TextColor="White"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

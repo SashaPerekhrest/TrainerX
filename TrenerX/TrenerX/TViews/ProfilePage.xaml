@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TrenerX.Views.DetailedTrainerPage">
+             x:Class="TrenerX.TViews.ProfilePage">
     <ContentPage.Content>
         <ScrollView BackgroundColor="White">
             <StackLayout Padding="10">
@@ -30,7 +30,7 @@
                            Grid.RowSpan="4"
                            Margin="0"
                            Padding="0">
-                    <Image Grid.Column="0"
+                        <Image Grid.Column="0"
                        Source="{Binding Image}"
                        Aspect="AspectFill"
                        HeightRequest="60"
@@ -43,9 +43,10 @@
                            HorizontalTextAlignment="End"
                            TextTransform="Uppercase"
                            TextColor="#74C044"/>
-                    <Editor Grid.Column="1"
+                    <Label Grid.Column="1"
                            Grid.Row="1"
                            FontSize="20"
+                           HorizontalTextAlignment="End"
                            Text="{Binding FullName}"
                            TextColor="Black"/>
                     <Label Grid.Column="1"
@@ -54,9 +55,10 @@
                            HorizontalTextAlignment="End"
                            Text="Направление"
                            TextColor="#74C044"/>
-                    <Editor Grid.Column="1"
+                    <Label Grid.Column="1"
                            Grid.Row="3"
                            FontSize="20"
+                           HorizontalTextAlignment="End"
                            Text="{Binding DirOfTraining}"
                            TextColor="Black"/>
                     <Label Grid.Column="0"
@@ -66,7 +68,7 @@
                            HorizontalTextAlignment="Center"
                            TextColor="#74C044"
                            FontSize="20"/>
-                    <Editor Grid.Column="0"
+                    <Label Grid.Column="0"
                            Grid.ColumnSpan="2"
                            Grid.Row="5"
                            TextColor="Black"
@@ -78,8 +80,9 @@
                            TextColor="#74C044"
                            FontSize="17"
                            HorizontalTextAlignment="Start"/>
-                    <Editor Grid.Column="0"
+                    <Label Grid.Column="0"
                            Grid.Row="7"
+                           HorizontalTextAlignment="Start"
                            FontSize="20"
                            TextColor="Black"
                            Text="{Binding Requirements}"/>
@@ -89,9 +92,10 @@
                            Text="Дни занятий"
                            TextColor="#74C044"
                            HorizontalTextAlignment="Center"/>
-                    <Editor Grid.Column="1"
+                    <Label Grid.Column="1"
                            Grid.Row="7"
                            FontSize="20"
+                           HorizontalTextAlignment="Center"
                            TextColor="Black"
                            Text="{Binding TrainingCount}"
                            TextTransform="Uppercase"/>
@@ -102,23 +106,14 @@
                            Text="Цена занятий (руб.)"
                            TextColor="#74C044"
                            HorizontalTextAlignment="Center"/>
-                    <Editor Grid.Column="0"
+                    <Label Grid.Column="0"
                            Grid.ColumnSpan="2"
                            Grid.Row="9"
                            FontSize="20"
+                           HorizontalTextAlignment="Center"
                            TextColor="Black"
                            Text="{Binding Price}"
                            TextTransform="Uppercase"/>
-                    <Button Text="Мой тренер"
-                            Clicked="AddToMyTainers"
-                            CornerRadius="20"
-                            TextColor="White"
-                            BackgroundColor="#74C044"
-                            Margin="20"
-                            Grid.Column="0"
-                            Grid.ColumnSpan="2"
-                            Grid.Row="10"/>
-
                 </Grid>
             </StackLayout>
         </ScrollView>

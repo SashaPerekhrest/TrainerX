@@ -22,13 +22,13 @@ namespace TrenerX.Views
             BindingContext = new PostItemTrener();
         }
 
-        private async void LoadTrener(string value)
+        private void LoadTrener(string value)
         {
             try
             {
                 var id = Convert.ToInt32(value);
 
-                var trainer = App.trainersDB.GetTrainer(id);
+                var trainer = App.dataBase.GetTrainer(id);
 
                 BindingContext = trainer;
             }
@@ -41,9 +41,10 @@ namespace TrenerX.Views
             if (!App.myUser.TrenersID.Contains(trainer.ID))
             {
                 App.myUser.TrainingCount += " " + trainer.ID;
-                App.usersDB.Update(App.myUser);
+                App.dataBase.UsersUpdate(App.myUser);
                 App.myUser.TrenersID.Add(trainer.ID);
                 App.LoadTrainersDays();
+                App.dataBase.RequestInsert( trainer.ID, App.myUser.Id, 0 );
             }
             await Shell.Current.GoToAsync("..");
         }

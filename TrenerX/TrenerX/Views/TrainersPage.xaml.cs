@@ -15,7 +15,7 @@ namespace TrenerX.Views
         protected override async void OnAppearing()
         {
             //App.trainersDB.Select();
-            collectionView.ItemsSource = App.trainersDB.treners;
+            collectionView.ItemsSource = App.dataBase.treners;
 
             Console.WriteLine("/////////////////////////////////////");
             base.OnAppearing();
@@ -44,11 +44,11 @@ namespace TrenerX.Views
         }
 
         private void GetSportCategory(object sender, EventArgs e)
-            => collectionView.ItemsSource = App.trainersDB.GetTrainersAtCategory(1);
+            => collectionView.ItemsSource = App.dataBase.GetTrainersAtCategory(1);
 
         private void GetCyberSportCategory(object sender, EventArgs e)
-            => collectionView.ItemsSource = App.trainersDB.GetTrainersAtCategory(2);
+            => collectionView.ItemsSource = App.dataBase.GetTrainersAtCategory(2);
         private void GetEducationCategory(object sender, EventArgs e)
-            => collectionView.ItemsSource = App.trainersDB.GetTrainersAtCategory(3);
+            => collectionView.ItemsSource = App.dataBase.GetTrainersAtCategory(3);
     }
 }

@@ -28,13 +28,13 @@ namespace TrenerX.Views
             BindingContext = new PostItemTrener();
         }
 
-        private async void LoadTrener(string value)
+        private void LoadTrener(string value)
         {
             try
             {
                 var id = Convert.ToInt32(value);
 
-                var trainer = App.trainersDB.GetTrainer(id);
+                var trainer = App.dataBase.GetTrainer(id);
 
                 BindingContext = trainer;
             }
@@ -46,9 +46,9 @@ namespace TrenerX.Views
             var trainer = (PostItemTrener)BindingContext;
 
             if (trainer.ID != 0)
-                App.trainersDB.Update(trainer);
+                App.dataBase.TrenersUpdate(trainer);
             else
-                App.trainersDB.Insert(trainer);
+                App.dataBase.TrenersInsert(trainer);
             await Shell.Current.GoToAsync("..");
         }
 
@@ -58,7 +58,7 @@ namespace TrenerX.Views
 
             Console.WriteLine("--------");
             Console.WriteLine(trainer.ID);
-            App.trainersDB.Delete(trainer);
+            App.dataBase.TrenersDelete(trainer);
 
             await Shell.Current.GoToAsync("..");
         }

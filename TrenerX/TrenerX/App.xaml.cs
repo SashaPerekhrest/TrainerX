@@ -9,8 +9,7 @@ namespace TrenerX
 {
     public partial class App : Application
     {
-        public static PostgreSQLdb trainersDB;
-        public static PostUsersDB usersDB;
+        public static PostgreSQLdb dataBase;
         public static User myUser;
 
         public static PostItemTrener[] trainersDays;
@@ -20,10 +19,7 @@ namespace TrenerX
             InitializeComponent();
 
             MainPage = new AppShell();
-            trainersDB = new PostgreSQLdb();
-            usersDB = new PostUsersDB();
-            usersDB.Select();
-            trainersDB.Select();
+            dataBase = new PostgreSQLdb();
             
             trainersDays = new PostItemTrener[7];
             LoadTrainersDays();
@@ -31,7 +27,7 @@ namespace TrenerX
 
         public static void LoadTrainersDays()
         {
-            var trainers = trainersDB.GetMyTrainers(myUser);
+            var trainers = dataBase.GetMyTrainersR(myUser);
             foreach (var trainer in trainers)
             {
                 var days = trainer.TrainingCount.Split(' ');
