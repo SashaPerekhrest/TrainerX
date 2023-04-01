@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TrenerX.Views;
+using TrenerX.TViews;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -21,6 +22,7 @@ namespace TrenerX
             Routing.RegisterRoute(nameof(MyDetailedTrainer), typeof(MyDetailedTrainer));
             Routing.RegisterRoute(nameof(EnterPage), typeof(EnterPage));
             Routing.RegisterRoute(nameof(RegistrationPage), typeof(RegistrationPage));
+            Routing.RegisterRoute(nameof(TrenerRegistrationPage), typeof(TrenerRegistrationPage));
         }
     }
 }

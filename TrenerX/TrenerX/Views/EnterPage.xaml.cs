@@ -15,21 +15,20 @@ namespace TrenerX.Views
         private bool IsStudent { get; set; }
         public EnterPage()
         {
+            IsStudent = true;
+            ModelColor = Color.FromRgb(116, 192, 68);
+            BindingContext = this;
             InitializeComponent();
         }
 
         protected override async void OnAppearing()
         {
             //App.trainersDB.Select();
-            ModelColor = Color.FromRgb(116, 192, 68);
-            BindingContext = this;
             Console.WriteLine("/////////////////////" + BindingContext.ToString());
 
             App.dataBase.TrenersSelect();
             App.dataBase.UsersSelect();
             App.dataBase.RequestSelect();
-
-            IsStudent = true;
 
             base.OnAppearing();
         }
@@ -74,7 +73,10 @@ namespace TrenerX.Views
 
         private async void GoToRegistration(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync(nameof(RegistrationPage));
+            if (IsStudent)
+                await Shell.Current.GoToAsync(nameof(RegistrationPage));
+            else
+                await Shell.Current.GoToAsync(nameof(TViews.TrenerRegistrationPage));
         }
 
         private void ChangeOfDirection(object sender, EventArgs e)

@@ -3,10 +3,37 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TrenerX.Views.RegistrationPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <StackLayout BackgroundColor="White">
+            <ScrollView>
+                <StackLayout Margin="20">
+                    <Editor Placeholder="ФИО"
+                            PlaceholderColor="Gray"
+                            TextColor="Black"
+                            Text="{Binding FullName}"
+                            HeightRequest="100"/>
+                    <Editor Placeholder="Контакты"
+                            PlaceholderColor="Gray"
+                            TextColor="Black"
+                            Text="{Binding Contacts}"
+                            HeightRequest="100"/>
+                    <Editor Placeholder="Логин"
+                            PlaceholderColor="Gray"
+                            TextColor="Black"
+                            Text="{Binding Login}"
+                            AutoSize="TextChanges"/>
+                    <Editor Placeholder="Пароль"
+                            PlaceholderColor="Gray"
+                            TextColor="Black"
+                            Text="{Binding Password}"
+                            HeightRequest="100"/>
+                    <Button Text="Зарегистрироваться"
+                            Clicked="OnSaveButton_Clicked"
+                            CornerRadius="20"
+                            TextColor="White"
+                            BackgroundColor="#74C044"
+                            Margin="20"/>
+                </StackLayout>
+            </ScrollView>
+            </StackLayout>
     </ContentPage.Content>
 </ContentPage>

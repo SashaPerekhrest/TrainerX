@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using TrenerX.Models;
 
 namespace TrenerX.TViews
 {
@@ -14,7 +15,16 @@ namespace TrenerX.TViews
     {
         public TrenerRegistrationPage()
         {
+            BindingContext = new PostItemTrener();
             InitializeComponent();
+        }
+
+        private async void OnSaveButton_Clicked(object sender, EventArgs e)
+        {
+            var trainer = (PostItemTrener)BindingContext;
+            App.dataBase.TrenersInsert(trainer);
+            App.dataBase.TrenersSelect();
+            await Shell.Current.GoToAsync("..");
         }
     }
 }

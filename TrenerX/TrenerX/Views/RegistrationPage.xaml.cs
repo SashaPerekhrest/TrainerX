@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using TrenerX.Models;
 
 namespace TrenerX.Views
 {
@@ -14,7 +15,18 @@ namespace TrenerX.Views
     {
         public RegistrationPage()
         {
+            BindingContext = new User();
+
             InitializeComponent();
+        }
+
+        private async void OnSaveButton_Clicked(object sender, EventArgs e)
+        {
+            var user = (User)BindingContext;
+            user.TrainingCount = "";
+            App.dataBase.UserInsert(user);
+            App.dataBase.TrenersSelect();
+            await Shell.Current.GoToAsync("..");
         }
     }
 }

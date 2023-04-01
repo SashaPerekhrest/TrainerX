@@ -1,9 +1,6 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
+﻿using Xamarin.Forms;
 using TrenerX.Data;
 using TrenerX.Models;
-using System.IO;
 
 namespace TrenerX
 {
@@ -21,6 +18,7 @@ namespace TrenerX
 
             MainPage = new AppShell();
             dataBase = new PostgreSQLdb();
+
 
             trainersDays = new PostItemTrener[7];
         }

@@ -4,7 +4,6 @@ using Npgsql;
 using System.Data;
 using TrenerX.Models;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace TrenerX.Data
 {
@@ -72,21 +71,29 @@ namespace TrenerX.Data
 
         public void TrenersUpdate(PostItemTrener trener)
         {
-            sql = @"select * from db_update(:_id, :_full_name, :_dir_of_training, :_requirements, :_education, :_training_count, :_price, :_contacts, :_login, :_pass_word, :_image, :_category)";
-            command = new NpgsqlCommand(sql, connection);
-            command.Parameters.AddWithValue("_id", trener.ID);
-            command.Parameters.AddWithValue("_full_name", trener.FullName);
-            command.Parameters.AddWithValue("_dir_of_training", trener.DirOfTraining);
-            command.Parameters.AddWithValue("_requirements", trener.Requirements);
-            command.Parameters.AddWithValue("_education", trener.Education);
-            command.Parameters.AddWithValue("_training_count", trener.TrainingCount);
-            command.Parameters.AddWithValue("_price", trener.Price);
-            command.Parameters.AddWithValue("_contacts", trener.Contacts);
-            command.Parameters.AddWithValue("_login", trener.Login);
-            command.Parameters.AddWithValue("_pass_word", trener.Password);
-            command.Parameters.AddWithValue("_image", trener.Image);
-            command.Parameters.AddWithValue("_category", trener.Category);
-            var result = command.ExecuteScalar().ToString();
+            try 
+            {
+                sql = @"select * from db_update(:_id, :_full_name, :_dir_of_training, :_requirements, :_education, :_training_count, :_price, :_contacts, :_login, :_pass_word, :_image, :_category)";
+                command = new NpgsqlCommand(sql, connection);
+                command.Parameters.AddWithValue("_id", trener.ID);
+                command.Parameters.AddWithValue("_full_name", trener.FullName);
+                command.Parameters.AddWithValue("_dir_of_training", trener.DirOfTraining);
+                command.Parameters.AddWithValue("_requirements", trener.Requirements);
+                command.Parameters.AddWithValue("_education", trener.Education);
+                command.Parameters.AddWithValue("_training_count", trener.TrainingCount);
+                command.Parameters.AddWithValue("_price", trener.Price);
+                command.Parameters.AddWithValue("_contacts", trener.Contacts);
+                command.Parameters.AddWithValue("_login", trener.Login);
+                command.Parameters.AddWithValue("_pass_word", trener.Password);
+                command.Parameters.AddWithValue("_image", trener.Image);
+                command.Parameters.AddWithValue("_category", trener.Category);
+                var result = command.ExecuteScalar().ToString();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            };
+
         }
 
         public void TrenersInsert(PostItemTrener trener)
@@ -108,6 +115,7 @@ namespace TrenerX.Data
                 command.Parameters.AddWithValue("_category", trener.Category);
                 var result = (int)command.ExecuteScalar();
                 TrenersSelect();
+                Console.WriteLine("//////// " + result);
             } catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
@@ -178,6 +186,27 @@ namespace TrenerX.Data
             };
         }
 
+        public void UserInsert(User user)
+        {
+            try
+            {
+                sql = @"select * from u_insert(:_full_name, :_training_count, :_contacts , :_login, :_pass_word)";
+                command = new NpgsqlCommand(sql, connection);
+                command.Parameters.AddWithValue("_full_name", user.FullName);
+                command.Parameters.AddWithValue("_training_count", user.TrainingCount);
+                command.Parameters.AddWithValue("_contacts", user.Contacts);
+                command.Parameters.AddWithValue("_login", user.Login);
+                command.Parameters.AddWithValue("_pass_word", user.Password);
+                var result = (int)command.ExecuteScalar();
+                UsersSelect();
+                Console.WriteLine("/*/");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            };
+        }
+
         public string UsersLoginCheck(string login)
         {
             sql = @"select * from u_login(:_login)";
@@ -208,9 +237,7 @@ namespace TrenerX.Data
         }
 
         public User GetUser(string login)
-        {
-            return users.FirstOrDefault(t => t.Login == login);
-        }
+            => users.FirstOrDefault(t => t.Login == login);
 
         /// <summary>
         /// Request functions
@@ -288,7 +315,10 @@ namespace TrenerX.Data
                 command.Parameters.AddWithValue("_id", request.ID);
                 await command.ExecuteScalarAsync();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            };
         }
 
         public List<PostItemTrener> GetMyTrainersR(User user)
@@ -297,11 +327,6 @@ namespace TrenerX.Data
                                       .Select(x => x.TrenerID)
                                       .ToList();
             var result = treners.Where(t => myTrenersID.Contains(t.ID)).ToList();
-            Console.WriteLine("*************");
-            foreach (var r in myTrenersID)
-            {
-                Console.WriteLine("*************" + r.ToString());
-            }
             return result;
         }
 
@@ -315,10 +340,8 @@ namespace TrenerX.Data
         }
 
         public Request GetRequest(int t_id, int u_id)
-        {
-            return requests.Where(x => x.TrenerID == t_id)
-                           .Where(x => x.UserID == u_id)
-                           .FirstOrDefault();
-        }
+            => requests.Where(x => x.TrenerID == t_id)
+                       .Where(x => x.UserID == u_id)
+                       .FirstOrDefault();
     }
 }

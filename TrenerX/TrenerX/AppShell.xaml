@@ -17,7 +17,8 @@
         </Style>
     </Shell.Resources>
     
-    <ShellItem Route="login">
+    <ShellItem Route="login"
+               Style="{StaticResource BaseStyle}">
         <ShellContent ContentTemplate="{DataTemplate views:EnterPage}"/>
     </ShellItem>
     
