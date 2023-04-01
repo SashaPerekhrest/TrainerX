@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrenerX.TViews.RequestPage">
+    <ContentPage.Content>
+        <Frame Padding="8,0,8,0" 
+           BackgroundColor="White">
+            <StackLayout>
+                <Label Text="Заявки"
+                   TextColor="Black"
+                   FontFamily="RockwellRegular"
+                   FontSize="30"/>
+                <CollectionView x:Name="collectionView"
+                    Margin="0"
+                    BackgroundColor="White">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical"
+                               ItemSpacing="10"/>
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame CornerRadius="15"
+                                   BorderColor="#FFA812"
+                                   BackgroundColor="#FFA812"
+                                   Margin="0"
+                                   Padding="0">
+                                <Frame Margin="3"
+                                       BackgroundColor="White"
+                                       CornerRadius="10"
+                                       Padding="0">
+                                    <Grid BackgroundColor="White"
+                                          Margin="5"
+                                          Padding="5">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="40" />
+                                            <RowDefinition Height="40" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="200*"/>
+                                            <ColumnDefinition Width="80*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Column="0"
+                                               Grid.Row="0"
+                                               Text="{Binding FullName}"
+                                               TextColor="Black"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center"/>
+                                        <Label Grid.Column="0"
+                                               Grid.Row="1"
+                                               Text="{Binding Contacts}"
+                                               TextColor="Black"
+                                               HorizontalOptions="Center"
+                                               VerticalOptions="Center"/>
+                                        <Button Grid.Column="1" 
+                                                Grid.Row="0"
+                                                Text="Принять"
+                                                ClassId ="{Binding Id}"
+                                                TextColor="White"
+                                                BackgroundColor="#FFA812"
+                                                CornerRadius="20"
+                                                HeightRequest="40"
+                                                FontSize="15"
+                                                TextTransform="None"
+                                                VerticalOptions="Center"
+                                                Clicked="Accept"/>
+                                        <Button Grid.Column="1" 
+                                                Grid.Row="1"
+                                                Text="Отклонить"
+                                                ClassId ="{Binding Id}"
+                                                TextColor="White"
+                                                BackgroundColor="#FFA812"
+                                                CornerRadius="20"
+                                                HeightRequest="40"
+                                                FontSize="15"
+                                                TextTransform="None"
+                                                VerticalOptions="Center"
+                                                Clicked="Reject"/>
+                                    </Grid>
+                                </Frame>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</ContentPage>

@@ -12,6 +12,7 @@ namespace TrenerX.Views
     public partial class EnterPage : ContentPage
     {
         public Color ModelColor { get; set; }
+        private bool IsStudent { get; set; }
         public EnterPage()
         {
             InitializeComponent();
@@ -28,10 +29,12 @@ namespace TrenerX.Views
             App.dataBase.UsersSelect();
             App.dataBase.RequestSelect();
 
+            IsStudent = true;
+
             base.OnAppearing();
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        private async void GoToUserShell(object sender, EventArgs e)
         {
             var login = loginPlace.Text;
             Console.WriteLine(login);
@@ -46,7 +49,30 @@ namespace TrenerX.Views
             }
         }
 
-        private async void Button_Clicked_1(object sender, EventArgs e)
+        private async void GoButton(object sender, EventArgs e)
+        {
+            if(IsStudent)
+                GoToUserShell(sender, e);
+            else
+                GoToTrenerShell(sender, e);
+        }
+
+        private async void GoToTrenerShell(object sender, EventArgs e)
+        {
+            var login = loginPlace.Text;
+            Console.WriteLine(login);
+            var password = App.dataBase.TrenersLoginCheck(login);
+            if (login != null && password != null && password == passwordPlace.Text)
+            {
+                App.myTrener = App.dataBase.GetTrainerLogin(login);
+                //App.myUser.SetTrenersID();
+                Console.WriteLine(App.myTrener.ID);
+                //App.LoadTrainersDays();
+                await Shell.Current.GoToAsync(state: "//mainTreners");
+            }
+        }
+
+        private async void GoToRegistration(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync(nameof(RegistrationPage));
         }
@@ -56,11 +82,12 @@ namespace TrenerX.Views
             Device.StartTimer(TimeSpan.FromSeconds(0.25), () =>
             {
                 var button = (Button)sender;
-                button.Text = "Я - ученик";
-                ModelColor = Color.Blue;
+                button.Text = IsStudent ? "Я - ученик":"Я - тренер";
+                ModelColor = IsStudent ? Color.FromRgb(255, 168, 18) : Color.FromRgb(116, 192, 68);
                 BindingContext = null;
                 BindingContext = this;
-                Console.WriteLine("/////////////////////" + BindingContext.ToString());
+                IsStudent = !IsStudent;
+                Console.WriteLine(IsStudent +"/////////////////////" + BindingContext.ToString());
                 return false;
             });
         }

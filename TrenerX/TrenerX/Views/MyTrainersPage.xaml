@@ -8,7 +8,7 @@
             <Label Text="Мои тренера"
                    TextColor="Black"
                    FontFamily="RockwellRegular"
-                   FontSize="30"/>
+                   FontSize="25"/>
             <CollectionView x:Name="collectionView"
                     Margin="0"
                     BackgroundColor="White">

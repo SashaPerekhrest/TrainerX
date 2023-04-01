@@ -11,6 +11,7 @@ namespace TrenerX
     {
         public static PostgreSQLdb dataBase;
         public static User myUser;
+        public static PostItemTrener myTrener;
 
         public static PostItemTrener[] trainersDays;
 
@@ -20,9 +21,8 @@ namespace TrenerX
 
             MainPage = new AppShell();
             dataBase = new PostgreSQLdb();
-            
+
             trainersDays = new PostItemTrener[7];
-            LoadTrainersDays();
         }
 
         public static void LoadTrainersDays()

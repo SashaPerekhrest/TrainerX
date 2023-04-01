@@ -38,13 +38,10 @@ namespace TrenerX.Views
         private async void AddToMyTainers(object sender, EventArgs e)
         {
             var trainer = (PostItemTrener)BindingContext;
-            if (!App.myUser.TrenersID.Contains(trainer.ID))
+            if (App.dataBase.GetRequest(trainer.ID, App.myUser.Id) == null)
             {
-                App.myUser.TrainingCount += " " + trainer.ID;
-                App.dataBase.UsersUpdate(App.myUser);
-                App.myUser.TrenersID.Add(trainer.ID);
+                App.dataBase.RequestInsert(trainer.ID, App.myUser.Id, 0);
                 App.LoadTrainersDays();
-                App.dataBase.RequestInsert( trainer.ID, App.myUser.Id, 0 );
             }
             await Shell.Current.GoToAsync("..");
         }

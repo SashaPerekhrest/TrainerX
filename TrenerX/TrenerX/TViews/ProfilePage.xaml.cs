@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using TrenerX.Models;
 
 namespace TrenerX.TViews
 {
@@ -14,7 +15,14 @@ namespace TrenerX.TViews
     {
         public ProfilePage()
         {
+            BindingContext = App.myTrener;
             InitializeComponent();
+        }
+
+        private async void UpdateTrener(object sender, EventArgs e)
+        {
+            var trainer = (PostItemTrener)BindingContext;
+            App.dataBase.TrenersUpdate(trainer);
         }
     }
 }

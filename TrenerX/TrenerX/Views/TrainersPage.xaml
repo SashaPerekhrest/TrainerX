@@ -14,10 +14,10 @@
             <Label Text="Категории"
                    FontFamily="RockwellRegular"
                    TextColor="Black"
-                   FontSize="30"/>
+                   FontSize="25"/>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="80"/>
                     <RowDefinition Height="25"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -73,7 +73,7 @@
                    Text="Тренеры"
                    FontFamily="RockwellRegular"
                    TextColor="Black"
-                   FontSize="30"/>
+                   FontSize="25"/>
             <CollectionView x:Name="collectionView"
                     Margin="0"
                     SelectionMode="Single"

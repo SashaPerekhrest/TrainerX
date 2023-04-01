@@ -18,6 +18,7 @@ namespace TrenerX.Views
 
         protected override async void OnAppearing()
         {
+            App.LoadTrainersDays();
             labalFullName_1.Text = App.trainersDays[0] == null ? "Пустой день": App.trainersDays[0].FullName;
             labalFullName_2.Text = App.trainersDays[1] == null ? "Пустой день" : App.trainersDays[1].FullName;
             labalFullName_3.Text = App.trainersDays[2] == null ? "Пустой день" : App.trainersDays[2].FullName;

@@ -16,8 +16,9 @@
                         <RowDefinition Height="30"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="30"/>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="180"/>
@@ -31,10 +32,10 @@
                            Margin="0"
                            Padding="0">
                         <Image Grid.Column="0"
-                       Source="{Binding Image}"
-                       Aspect="AspectFill"
-                       HeightRequest="60"
-                       WidthRequest="60"></Image>
+                               Source="{Binding Image}"
+                               Aspect="AspectFill"
+                               HeightRequest="60"
+                               WidthRequest="60"></Image>
                     </Frame>
                     <Label Grid.Column="1"
                            Grid.Row="0"
@@ -42,11 +43,10 @@
                            FontSize="20"
                            HorizontalTextAlignment="End"
                            TextTransform="Uppercase"
-                           TextColor="#74C044"/>
-                    <Label Grid.Column="1"
+                           TextColor="#FFA812"/>
+                    <Editor Grid.Column="1"
                            Grid.Row="1"
                            FontSize="20"
-                           HorizontalTextAlignment="End"
                            Text="{Binding FullName}"
                            TextColor="Black"/>
                     <Label Grid.Column="1"
@@ -54,11 +54,10 @@
                            FontSize="20"
                            HorizontalTextAlignment="End"
                            Text="Направление"
-                           TextColor="#74C044"/>
-                    <Label Grid.Column="1"
+                           TextColor="#FFA812"/>
+                    <Editor Grid.Column="1"
                            Grid.Row="3"
                            FontSize="20"
-                           HorizontalTextAlignment="End"
                            Text="{Binding DirOfTraining}"
                            TextColor="Black"/>
                     <Label Grid.Column="0"
@@ -66,9 +65,9 @@
                            Grid.Row="4"
                            Text="Описание и награды"
                            HorizontalTextAlignment="Center"
-                           TextColor="#74C044"
+                           TextColor="#FFA812"
                            FontSize="20"/>
-                    <Label Grid.Column="0"
+                    <Editor Grid.Column="0"
                            Grid.ColumnSpan="2"
                            Grid.Row="5"
                            TextColor="Black"
@@ -77,12 +76,11 @@
                     <Label Grid.Column="0"
                            Grid.Row="6"
                            Text="Требования к ученику"
-                           TextColor="#74C044"
+                           TextColor="#FFA812"
                            FontSize="17"
                            HorizontalTextAlignment="Start"/>
-                    <Label Grid.Column="0"
+                    <Editor Grid.Column="0"
                            Grid.Row="7"
-                           HorizontalTextAlignment="Start"
                            FontSize="20"
                            TextColor="Black"
                            Text="{Binding Requirements}"/>
@@ -90,12 +88,11 @@
                            Grid.Row="6"
                            FontSize="17"
                            Text="Дни занятий"
-                           TextColor="#74C044"
+                           TextColor="#FFA812"
                            HorizontalTextAlignment="Center"/>
-                    <Label Grid.Column="1"
+                    <Editor Grid.Column="1"
                            Grid.Row="7"
                            FontSize="20"
-                           HorizontalTextAlignment="Center"
                            TextColor="Black"
                            Text="{Binding TrainingCount}"
                            TextTransform="Uppercase"/>
@@ -104,16 +101,38 @@
                            Grid.Row="8"
                            FontSize="20"
                            Text="Цена занятий (руб.)"
-                           TextColor="#74C044"
+                           TextColor="#FFA812"
                            HorizontalTextAlignment="Center"/>
-                    <Label Grid.Column="0"
+                    <Editor Grid.Column="0"
                            Grid.ColumnSpan="2"
                            Grid.Row="9"
                            FontSize="20"
-                           HorizontalTextAlignment="Center"
                            TextColor="Black"
                            Text="{Binding Price}"
                            TextTransform="Uppercase"/>
+                    <Label Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           Grid.Row="10"
+                           FontSize="20"
+                           Text="Ссылка на фотографию"
+                           TextColor="#FFA812"
+                           HorizontalTextAlignment="Center"/>
+                    <Editor Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           Grid.Row="11"
+                           FontSize="20"
+                           TextColor="Black"
+                           Text="{Binding Image}"
+                           TextTransform="Uppercase"/>
+                    <Button Text="Сохранить изменения"
+                            Clicked="UpdateTrener"
+                            CornerRadius="20"
+                            TextColor="White"
+                            BackgroundColor="#FFA812"
+                            Margin="20"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Grid.Row="12"/>
                 </Grid>
             </StackLayout>
         </ScrollView>

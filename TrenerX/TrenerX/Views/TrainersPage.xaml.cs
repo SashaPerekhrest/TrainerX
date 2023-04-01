@@ -44,7 +44,7 @@ namespace TrenerX.Views
         }
 
         private void GetSportCategory(object sender, EventArgs e)
-            => collectionView.ItemsSource = App.dataBase.GetTrainersAtCategory(1);
+            =>collectionView.ItemsSource = App.dataBase.GetTrainersAtCategory(1);
 
         private void GetCyberSportCategory(object sender, EventArgs e)
             => collectionView.ItemsSource = App.dataBase.GetTrainersAtCategory(2);

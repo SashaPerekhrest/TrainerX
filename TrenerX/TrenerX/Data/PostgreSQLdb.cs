@@ -128,18 +128,21 @@ namespace TrenerX.Data
         }
 
         public PostItemTrener GetTrainer(int id)
-        {
-            return treners.FirstOrDefault(t => t.ID == id);
-        }
+            => treners.FirstOrDefault(t => t.ID == id);
 
-        public List<PostItemTrener> GetMyTrainers(User user)
-        {
-            return treners.Where(t => user.TrenersID.Contains(t.ID)).ToList();
-        }
+        public PostItemTrener GetTrainerLogin(string login)
+            => treners.FirstOrDefault(t => t.Login == login);
 
         public List<PostItemTrener> GetTrainersAtCategory(int category)
+            => treners.Where(t => t.Category == category).ToList();
+
+        public string TrenersLoginCheck(string login)
         {
-            return treners.Where(t => t.Category == category).ToList();
+            sql = @"select * from db_login(:_login)";
+            command = new NpgsqlCommand(sql, connection);
+            command.Parameters.AddWithValue("_login", login);
+            var result = command.ExecuteScalar().ToString();
+            return result;
         }
 
         /// <summary>
@@ -210,7 +213,7 @@ namespace TrenerX.Data
         }
 
         /// <summary>
-        /// Users functions
+        /// Request functions
         /// </summary>
 
         public void RequestSelect()
@@ -244,7 +247,7 @@ namespace TrenerX.Data
         {
             try
             {
-                sql = @"select * from u_update(:_id, :_confirmation)";
+                sql = @"select * from r_update(:_id, :_confirmation)";
                 command = new NpgsqlCommand(sql, connection);
                 command.Parameters.AddWithValue("_id", request.ID);
                 command.Parameters.AddWithValue("_confirmation", request.Confirmation);
@@ -267,6 +270,7 @@ namespace TrenerX.Data
                 command.Parameters.AddWithValue("_confirmation", con);
                 var result = (int)command.ExecuteScalar();
                 RequestSelect();
+                Console.WriteLine("/*/");
             }
             catch (Exception ex)
             {
@@ -289,7 +293,7 @@ namespace TrenerX.Data
 
         public List<PostItemTrener> GetMyTrainersR(User user)
         {
-            var myTrenersID = requests.Where(x => x.UserID == user.Id)
+            var myTrenersID = requests.Where(x => x.UserID == user.Id && x.Confirmation == 1)
                                       .Select(x => x.TrenerID)
                                       .ToList();
             var result = treners.Where(t => myTrenersID.Contains(t.ID)).ToList();
@@ -301,7 +305,16 @@ namespace TrenerX.Data
             return result;
         }
 
-        public Request GetRequestId(int t_id, int u_id)
+        public List<User> GetMyUsersR(PostItemTrener trener)
+        {
+            var myUsersID = requests.Where(x => x.TrenerID == trener.ID && x.Confirmation == 0)
+                                    .Select(x => x.UserID)
+                                    .ToList();
+            var result = users.Where(t => myUsersID.Contains(t.Id)).ToList();
+            return result;
+        }
+
+        public Request GetRequest(int t_id, int u_id)
         {
             return requests.Where(x => x.TrenerID == t_id)
                            .Where(x => x.UserID == u_id)

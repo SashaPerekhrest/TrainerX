@@ -46,7 +46,7 @@ namespace TrenerX.Views
             }
             App.dataBase.UsersUpdate(App.myUser);
 
-            App.dataBase.RequestDelete(App.dataBase.GetRequestId(myTrainer.ID, App.myUser.Id));
+            App.dataBase.RequestDelete(App.dataBase.GetRequest(myTrainer.ID, App.myUser.Id));
             App.UpdateTrainersDays();
 
             await Shell.Current.GoToAsync("..");

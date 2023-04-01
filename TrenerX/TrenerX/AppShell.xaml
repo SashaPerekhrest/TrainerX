@@ -2,10 +2,16 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TrenerX.AppShell"
-       xmlns:views="clr-namespace:TrenerX.Views">
+       xmlns:views="clr-namespace:TrenerX.Views"
+       xmlns:tviews="clr-namespace:TrenerX.TViews">
     <Shell.Resources>
         <Style x:Key="BaseStyle" TargetType="Element">
             <Setter Property="Shell.BackgroundColor" Value="#74C044"/>
+            <Setter Property="Shell.ForegroundColor" Value="White"/>
+            <Setter Property="Shell.TitleColor" Value="Black"/>
+        </Style>
+        <Style x:Key="TrenerStyle" TargetType="Element">
+            <Setter Property="Shell.BackgroundColor" Value="#FFA812"/>
             <Setter Property="Shell.ForegroundColor" Value="White"/>
             <Setter Property="Shell.TitleColor" Value="Black"/>
         </Style>
@@ -34,6 +40,19 @@
             Icon="timetable.png"
             ContentTemplate="{DataTemplate views:TimetablePage}">
         </ShellContent>
-        
+    </TabBar>
+
+    <TabBar Route="mainTreners"
+            Style="{StaticResource TrenerStyle}">
+        <ShellContent
+            Title="Профиль"
+            Icon="trainers.png"
+            ContentTemplate="{DataTemplate tviews:ProfilePage}">
+        </ShellContent>
+        <ShellContent 
+            Title="Заявки"
+            Icon="timetable.png"
+            ContentTemplate="{DataTemplate tviews:RequestPage}">
+        </ShellContent>        
     </TabBar>
 </Shell>
