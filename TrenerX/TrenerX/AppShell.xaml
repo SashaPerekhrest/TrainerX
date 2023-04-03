@@ -41,6 +41,12 @@
             Icon="timetable.png"
             ContentTemplate="{DataTemplate views:TimetablePage}">
         </ShellContent>
+        
+        <ShellContent 
+            Title="Профиль"
+            Icon="profile.png"
+            ContentTemplate="{DataTemplate views:UserProfilePage}">
+        </ShellContent>
     </TabBar>
 
     <TabBar Route="mainTreners"

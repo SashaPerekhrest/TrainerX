@@ -19,6 +19,10 @@
                         <RowDefinition Height="40"/>
                         <RowDefinition Height="40"/>
                         <RowDefinition Height="auto"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="80"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="180"/>
@@ -124,6 +128,20 @@
                            TextColor="Black"
                            Text="{Binding Image}"
                            TextTransform="Uppercase"/>
+                    <Label Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           Grid.Row="12"
+                           FontSize="20"
+                           Text="Контакты"
+                           TextColor="#FFA812"
+                           HorizontalTextAlignment="Center"/>
+                    <Editor Grid.Column="0"
+                           Grid.ColumnSpan="2"
+                           Grid.Row="13"
+                           FontSize="20"
+                           TextColor="Black"
+                           Text="{Binding Contacts}"
+                           TextTransform="Uppercase"/>
                     <Button Text="Сохранить изменения"
                             Clicked="UpdateTrener"
                             CornerRadius="20"
@@ -132,7 +150,17 @@
                             Margin="20"
                             Grid.Column="0"
                             Grid.ColumnSpan="2"
-                            Grid.Row="12"/>
+                            Grid.Row="14"/>
+                    <Button Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Grid.Row="15"
+                            Text="Выйти из профиля"
+                            Clicked="Button_Clicked"
+                            TextColor="White"
+                            BackgroundColor="#FFA812"
+                            CornerRadius="20"
+                            FontSize="15"
+                            Margin="20"/>
                 </Grid>
             </StackLayout>
         </ScrollView>

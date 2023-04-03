@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TrenerX.Views.UserProfilePage"
+             Shell.NavBarIsVisible="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <Image Source="face.png"
+                   Scale="1"
+                   WidthRequest="150"
+                   Margin="40"/>
+            <Label Text="Имя пользователя"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   FontSize="20"
+                   TextColor="#74C044"/>
+            <Editor Placeholder="ФИО"
+                    PlaceholderColor="Gray"
+                    TextColor="Black"
+                    Text="{Binding FullName}"/>
+            <Label Text="Контакты"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Start"
+                   FontSize="20"
+                   TextColor="#74C044"/>
+            <Editor Placeholder="Контакты"
+                    PlaceholderColor="Gray"
+                    TextColor="Black"
+                    Text="{Binding Contacts}"/>
+            <Button Text="Сохранить изменения"
+                    Clicked="UpdateButton"
+                    TextColor="White"
+                    BackgroundColor="#74C044"
+                    CornerRadius="20"
+                    FontSize="15"
+                    Margin="20"/>
+            <Button Text="Выйти из профиля"
+                    Clicked="GoBackButton"
+                    TextColor="White"
+                    BackgroundColor="#74C044"
+                    CornerRadius="20"
+                    FontSize="15"
+                    Margin="20"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

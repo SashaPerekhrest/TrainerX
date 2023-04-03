@@ -15,14 +15,25 @@ namespace TrenerX.TViews
     {
         public ProfilePage()
         {
-            BindingContext = App.myTrener;
             InitializeComponent();
+        }
+
+        protected override async void OnAppearing()
+        {
+            BindingContext = App.myTrener;
+            base.OnAppearing();
         }
 
         private async void UpdateTrener(object sender, EventArgs e)
         {
             var trainer = (PostItemTrener)BindingContext;
             App.dataBase.TrenersUpdate(trainer);
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            App.myTrener = new PostItemTrener();
+            await Shell.Current.GoToAsync(state: "//login");
         }
     }
 }

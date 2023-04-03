@@ -38,22 +38,25 @@ namespace TrenerX.Views
             var login = loginPlace.Text;
             Console.WriteLine(login);
             var password = App.dataBase.UsersLoginCheck(login);
-            if (login != null && password != null && password == passwordPlace.Text)
+            if (password != null && password == passwordPlace.Text)
             {
                 App.myUser = App.dataBase.GetUser(login);
                 App.myUser.SetTrenersID();
                 Console.WriteLine(App.myUser.Id);
-                App.LoadTrainersDays();
+                App.UpdateTrainersDays();
                 await Shell.Current.GoToAsync(state: "//main");
             }
         }
 
-        private async void GoButton(object sender, EventArgs e)
+        private void GoButton(object sender, EventArgs e)
         {
-            if(IsStudent)
-                GoToUserShell(sender, e);
-            else
-                GoToTrenerShell(sender, e);
+            if (passwordPlace.Text != null && loginPlace.Text != null)
+            {
+                if (IsStudent)
+                    GoToUserShell(sender, e);
+                else
+                    GoToTrenerShell(sender, e);
+            }
         }
 
         private async void GoToTrenerShell(object sender, EventArgs e)
@@ -61,12 +64,10 @@ namespace TrenerX.Views
             var login = loginPlace.Text;
             Console.WriteLine(login);
             var password = App.dataBase.TrenersLoginCheck(login);
-            if (login != null && password != null && password == passwordPlace.Text)
+            if (password != null && password == passwordPlace.Text)
             {
                 App.myTrener = App.dataBase.GetTrainerLogin(login);
-                //App.myUser.SetTrenersID();
                 Console.WriteLine(App.myTrener.ID);
-                //App.LoadTrainersDays();
                 await Shell.Current.GoToAsync(state: "//mainTreners");
             }
         }

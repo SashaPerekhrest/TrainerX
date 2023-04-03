@@ -216,18 +216,18 @@ namespace TrenerX.Data
             return result;
         }
 
-        public void UsersUpdate(User trener)
+        public void UsersUpdate(User user)
         {
             try
             {
                 sql = @"select * from u_update(:_id, :_full_name, :_training_count, :_contacts, :_login, :_pass_word)";
                 command = new NpgsqlCommand(sql, connection);
-                command.Parameters.AddWithValue("_id", trener.Id);
-                command.Parameters.AddWithValue("_full_name", trener.FullName);
-                command.Parameters.AddWithValue("_training_count", trener.TrainingCount);
-                command.Parameters.AddWithValue("_contacts", trener.Contacts);
-                command.Parameters.AddWithValue("_login", trener.Login);
-                command.Parameters.AddWithValue("_pass_word", trener.Password);
+                command.Parameters.AddWithValue("_id", user.Id);
+                command.Parameters.AddWithValue("_full_name", user.FullName);
+                command.Parameters.AddWithValue("_training_count", user.TrainingCount);
+                command.Parameters.AddWithValue("_contacts", user.Contacts);
+                command.Parameters.AddWithValue("_login", user.Login);
+                command.Parameters.AddWithValue("_pass_word", user.Password);
                 var result = command.ExecuteScalar().ToString();
             }
             catch (Exception ex)
