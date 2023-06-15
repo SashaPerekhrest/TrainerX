@@ -31,6 +31,9 @@ namespace TrenerX.Views
                 var trainer = App.dataBase.GetTrainer(id);
 
                 BindingContext = trainer;
+                var feedbacks = App.dataBase.GetTrenersFeedbacks(trainer);
+                feedbackView.ItemsSource = feedbacks;
+                feedbackView.HeightRequest = 50 + feedbacks.Count * 130;
             }
             catch { }
         }
@@ -50,6 +53,21 @@ namespace TrenerX.Views
             App.UpdateTrainersDays();
 
             await Shell.Current.GoToAsync("..");
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            var review = await DisplayPromptAsync("Оставить отзыв",
+                "",
+                "Подтвердить",
+                "Отмена",
+                "Напишите тут");
+            var myTrainer = (PostItemTrener)BindingContext;
+            App.dataBase.FeedbackInsert(myTrainer.ID, App.myUser.Id, review);
+
+            var feedbacks = App.dataBase.GetTrenersFeedbacks(myTrainer);
+            feedbackView.ItemsSource = feedbacks;
+            feedbackView.HeightRequest = 50 + feedbacks.Count * 120;
         }
     }
 }

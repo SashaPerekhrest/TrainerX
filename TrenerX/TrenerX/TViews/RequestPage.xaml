@@ -80,6 +80,12 @@
                             </Frame>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
+                    <CollectionView.EmptyView>
+                    <Label Text="Нет новых заявок"
+                                   TextColor="Black"
+                                   FontFamily="RockwellRegular"
+                                   FontSize="20"/>
+                    </CollectionView.EmptyView>
                 </CollectionView>
             </StackLayout>
         </Frame>

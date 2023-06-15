@@ -1,6 +1,7 @@
 ﻿using Xamarin.Forms;
 using TrenerX.Data;
 using TrenerX.Models;
+using System;
 
 namespace TrenerX
 {
@@ -56,6 +57,7 @@ namespace TrenerX
                             break;
                     }
                 }
+                Console.WriteLine("*****************************************8"+trainersDays);
             }
         }
 

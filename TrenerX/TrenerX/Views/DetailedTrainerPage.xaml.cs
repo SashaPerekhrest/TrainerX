@@ -20,6 +20,7 @@ namespace TrenerX.Views
             InitializeComponent();
 
             BindingContext = new PostItemTrener();
+            feedbackView.ItemsSource = null;
         }
 
         private void LoadTrener(string value)
@@ -31,6 +32,9 @@ namespace TrenerX.Views
                 var trainer = App.dataBase.GetTrainer(id);
 
                 BindingContext = trainer;
+                var feedbacks = App.dataBase.GetTrenersFeedbacks(trainer);
+                feedbackView.ItemsSource = feedbacks;
+                feedbackView.HeightRequest =50 + feedbacks.Count * 130;
             }
             catch { }
         }

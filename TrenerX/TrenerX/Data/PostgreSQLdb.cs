@@ -18,6 +18,7 @@ namespace TrenerX.Data
         public List<PostItemTrener> treners;
         public List<User> users;
         public List<Request> requests;
+        public List<Feedback> feedbacks;
 
         public PostgreSQLdb()
         {
@@ -239,6 +240,9 @@ namespace TrenerX.Data
         public User GetUser(string login)
             => users.FirstOrDefault(t => t.Login == login);
 
+        public User GetUser(int id)
+            => users.FirstOrDefault(t => t.Id == id);
+
         /// <summary>
         /// Request functions
         /// </summary>
@@ -343,5 +347,92 @@ namespace TrenerX.Data
             => requests.Where(x => x.TrenerID == t_id)
                        .Where(x => x.UserID == u_id)
                        .FirstOrDefault();
+
+
+        /// <summary>
+        /// Request functions
+        /// </summary>
+
+        public void FeedbackSelect()
+        {
+            table.Clear();
+            try
+            {
+                sql = @"select * from f_select()";
+                command = new NpgsqlCommand(sql, connection);
+                table.Clear();
+                table.Load(command.ExecuteReader());
+                feedbacks = table.Rows.OfType<DataRow>().Select(m => new Feedback()
+                {
+                    ID = m.Field<int>("id"),
+                    TrenerID = m.Field<int>("t_id_f"),
+                    UserID = m.Field<int>("u_id_f"),
+                    Review = m.Field<string>("review"),
+                }).ToList();
+
+                foreach (var trener in feedbacks)
+                {
+                    Console.WriteLine("feedback" + trener.UserName);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("users//////////////////////////" + ex.Message);
+            };
+        }
+
+        public void FeedbackUpdate(Feedback feedback)
+        {
+            try
+            {
+                sql = @"select * from f_update(:_id, :_review)";
+                command = new NpgsqlCommand(sql, connection);
+                command.Parameters.AddWithValue("_id", feedback.ID);
+                command.Parameters.AddWithValue("_review", feedback.Review);
+                var result = command.ExecuteScalar().ToString();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            };
+        }
+
+        public void FeedbackInsert(int t_id, int u_id, string con)
+        {
+            try
+            {
+                sql = @"select * from f_insert(:_t_id_f, :_u_id_f, :_review)";
+                command = new NpgsqlCommand(sql, connection);
+                command.Parameters.AddWithValue("_t_id_f", t_id);
+                command.Parameters.AddWithValue("_u_id_f", u_id);
+                command.Parameters.AddWithValue("_review", con);
+                var result = (int)command.ExecuteScalar();
+                FeedbackSelect();
+                Console.WriteLine("/*/");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            };
+        }
+
+        public async void FeedbackDelete(Feedback feedback)
+        {
+            try
+            {
+                feedbacks.Remove(feedback);
+                sql = @"select * from f_delete(:_id)";
+                command = new NpgsqlCommand(sql, connection);
+                command.Parameters.AddWithValue("_id", feedback.ID);
+                await command.ExecuteScalarAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            };
+        }
+
+        public List<Feedback> GetTrenersFeedbacks(PostItemTrener trener)
+            => feedbacks.Where(feedback => feedback.TrenerID == trener.ID).ToList();
     }
 }

@@ -29,6 +29,7 @@ namespace TrenerX.Views
             App.dataBase.TrenersSelect();
             App.dataBase.UsersSelect();
             App.dataBase.RequestSelect();
+            App.dataBase.FeedbackSelect();
 
             base.OnAppearing();
         }

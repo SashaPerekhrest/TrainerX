@@ -22,6 +22,9 @@ namespace TrenerX.TViews
         {
             BindingContext = App.myTrener;
             base.OnAppearing();
+            var feedbacks = App.dataBase.GetTrenersFeedbacks(App.myTrener);
+            feedbackView.ItemsSource = feedbacks;
+            feedbackView.HeightRequest = 50 + feedbacks.Count * 130;
         }
 
         private async void UpdateTrener(object sender, EventArgs e)

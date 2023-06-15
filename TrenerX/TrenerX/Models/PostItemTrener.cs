@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace TrenerX.Models
+﻿namespace TrenerX.Models
 {
     public class PostItemTrener
     {
